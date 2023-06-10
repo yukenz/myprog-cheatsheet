@@ -1,0 +1,23 @@
+###Install ruby and jekyll on mac os
+
+
+brew install chruby ruby-install xz
+ruby-install ruby
+
+#Set to .zshrc
+### ruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+# /Users/yukenz/.rubies/
+chruby ruby-3.2.2 
+echo "Chrubby on .zshrc init"
+
+
+ruby -v
+gem install jekyll
+
+#update gem
+gem update --system
+
+#pathing ruby libs
+type -a ruby

@@ -1,0 +1,30 @@
+ID: 0166000A, STOLEN: 32 MB, FBMEM: 16 MB, VRAM: 1536 MB, Flags: 0x00000000
+TOTAL STOLEN: 16 MB, TOTAL CURSOR: 1 MB, MAX STOLEN: 32 MB, MAX OVERALL: 33 MB (34615296 bytes)
+Camellia: CamelliaUnsupported (255), Freq: 1808 Hz, FreqMax: 1808 Hz
+Mobile: 0, PipeCount: 2, PortCount: 3, FBMemoryCount: 2
+[2] busId: 0x05, pipe: 0, type: 0x00000400, flags: 0x00000107 - ConnectorDP
+[3] busId: 0x04, pipe: 0, type: 0x00000400, flags: 0x00000107 - ConnectorDP
+[4] busId: 0x06, pipe: 0, type: 0x00000800, flags: 0x00000006 - ConnectorHDMI
+01050000 00040000 07010000
+02040000 04000000 07010000
+03060000 00080000 06000000
+
+ID: 01620005, STOLEN: 32 MB, FBMEM: 16 MB, VRAM: 1536 MB, Flags: 0x00000000
+TOTAL STOLEN: 16 MB, TOTAL CURSOR: 1 MB, MAX STOLEN: 32 MB, MAX OVERALL: 33 MB (34615296 bytes)
+Camellia: CamelliaUnsupported (255), Freq: 1808 Hz, FreqMax: 1808 Hz
+Mobile: 0, PipeCount: 2, PortCount: 3, FBMemoryCount: 2
+[2] busId: 0x05, pipe: 0, type: 0x00000400, flags: 0x00000011 - ConnectorDP
+[3] busId: 0x04, pipe: 0, type: 0x00000400, flags: 0x00000107 - ConnectorDP
+[4] busId: 0x06, pipe: 0, type: 0x00000400, flags: 0x00000107 - ConnectorDP
+02050000 00040000 11000000
+03040000 00040000 07010000
+04060000 00040000 07010000
+
+04 00 00 00 DVI
+framebuffer-conX-enable = 01000000
+framebuffer-conX-type = 04000000
+framebuffer-stolenmem = 
+framebuffer-fbmem = 
+framebuffer-cursormem = 
+
+02000000 01000000 00000000 03040000 04000000 07010000 04000000 01000000 00000000

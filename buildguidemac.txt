@@ -1,0 +1,14 @@
+libiconv is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have libiconv first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/libiconv/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find libiconv you may need to set:
+  export LDFLAGS="-L/usr/local/Cellar/icu4c/72.1/lib"
+  export CPPFLAGS="-I/usr/local/Cellar/icu4c/72.1/include"
+
+  build flag for mac brew
+
+export LDFLAGS="-L/usr/local/Cellar/icu4c/72.1/lib" && export CPPFLAGS="-I/usr/local/Cellar/icu4c/72.1/include"
