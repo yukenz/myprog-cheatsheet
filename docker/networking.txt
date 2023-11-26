@@ -1,0 +1,31 @@
+#List Network and Inspect
+docker network list
+docker network inspect netName
+docker inspect containerName | grep IPv4Address
+docker inspect containerName | grep IPAddress
+
+
+#Create network
+docker network create \
+--subnet=192.168.0.0/24 \
+--internal \
+netName
+
+
+#Delete network
+docker network rm netName
+
+
+#Connect container to network
+docker network connect \
+--ip 192.168.0.1 \
+netName containerName
+
+
+#Disconnect container to network
+docker network disconnect -f netName containerName
+
+
+#Run Container with net
+docker [anyCommands] --net netName containerName
+Run
