@@ -1,0 +1,20 @@
+Modify Docker Container Props
+
+Common Props
+
+docker container update \
+--cpus numCPU \
+--memory ramLimit \
+containerName|containerTag
+
+Port Props
+
+1. Check docker Hash with ```docker inspect containerName```
+2. Go check /var/lib/docker/containers/containerHash/hostconfig.json
+3. Stop Container and Docker Service
+4. Edit the File
+5. Restart Docker engine (Desktop or systemctl)
+6. Start everithings
+
+
+
