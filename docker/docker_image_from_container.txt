@@ -1,0 +1,12 @@
+Create Docker Image From Container and Backup It
+
+1. Crete Container.
+2. Modify Container.
+3. Run commit and change entrypoint  ```docker commit \ --change=‘ENTRYPOINT [“java”, “—jar”]’ \ --change='CMD [“file.jar”]’ \ --change=‘EXPOSE PORT’ \ containerName [Optional]imageName``` 
+4. Check image  ```docker images -a```  and it will return imageId.
+5. Give a image name  ```docker tag imageId imageName``` 
+6. Delete Used Container before  ```docker stop containerName``` and ```docker rm containerName``` 
+7. Then run new Image  ``` docker run -d imageName``` 
+8. Backup Image to Locally  ```docker save imageName | gzip -c > fileName.tgz``` for Unix or ```docker save -o fileName.tar imageName``` for DOS 
+9. For load image  ```gunzip -c fileName.tgz | docker load```for Unix or ```docker load -i fileName.tar``` for DOS
+
