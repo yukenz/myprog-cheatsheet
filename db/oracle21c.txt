@@ -1,0 +1,38 @@
+——
+clear scr
+
+# Turn into PDB
+alter session set container=XEPDB1;
+# Reconnect from SQLPLUS
+connect pdbadmin/awan@localhost:1521/XEPDB1
+
+# Show Pluggable DB List
+select name from v$pdbs;
+# Show Current DB Conn
+show con_name
+
+# Create Container User
+create user C##oracle21userdb identified by admin123
+# Create Pluggable User
+create user oracle21userdb identified by admin123
+
+# Show All User
+select * from all_users where username=webmuser
+# Alter ACL User
+ALTER orcuser21c grant all;
+GRANT all privileges to orcuser21c
+GRANT create  on, create view, create procedure, create sequence to orcuser21c
+
+-- AVAILABLE PDB
+select name from v$pdbs;
+-- DATABASE NAME
+select name from V_$DATABASE;
+-- SHOW CONNECTION NAME
+SELECT SYS_CONTEXT('USERENV','CON_NAME') AS CON_NAME FROM DUAL;
+
+-- CREATE USER
+CREATE USER webmuser IDENTIFIED BY admin123;
+
+SELECT * FROM ALL_USERS WHERE USERNAME='WEBMUSER';
+
+
