@@ -1,0 +1,95 @@
+Connect to a Database: “psql -d db_name -U user_name”.
+Check Postgres Version: “SELECT VERSION();”.
+List All Databases: “\l”.
+Access or Switch a Database: “\c db_name”.
+List All Tables: “\dt”.
+Describe All Tables: “\d”.
+Describe a Specific Table: “\d tab_name”.
+List All Schemas: “\dn”.
+List All Views: “\dv”.
+List All Functions: “\df”.
+List All Users: “\du”.
+Show Commands History: “\s”
+Save Query’s Results to a Specific File: “\o file_name”.
+Run psql Commands/queries From a Particular File: “\i file_name”.
+Execute Previous Command: “\g”.
+Show Query Execution Time: “\timing”.
+Get Output in HTML Format: “\H”.
+Align Columns Output: “\a”.
+Get Help: “\h”.
+Get All psql Commands: “\?”.
+Clear Screen: “\! cls”.
+Quit psql: “\q”.
+
+--===== Function
+-- return resultset
+create or replace function listDB()
+    returns setof varchar
+    language plpgsql
+as
+$$
+declare
+    db_name varchar;
+begin
+    for db_name IN (select datname from pg_database)
+        loop
+            return NEXT db_name;
+        end loop;
+    return;
+end;
+$$;
+
+-- return one
+create or replace function firstDB()
+    returns varchar
+    language plpgsql
+as
+$$
+declare
+    db_name varchar;
+begin
+
+    select datname into db_name from pg_database;
+    return db_name;
+end;
+$$;
+
+-- return set
+create or replace function allAttrDB()
+    returns setof pg_database
+    language plpgsql
+as
+$$
+begin
+
+  return query select * from pg_database;
+
+end;
+$$;
+
+
+--===== Procedural
+
+-- create OUT
+create or replace procedure listDB(
+    out total int
+)
+language plpgsql
+as $$
+begin
+
+  select count(pgdb.datname) into total
+from pg_database pgdb;
+
+end;$$;
+
+-- call OUT with sequence
+DO $$
+DECLARE
+    total_result INT;
+BEGIN
+    CALL listDB(total_result);
+    RAISE NOTICE 'Total: %', total_result;
+END $$;
+
+call listDB();
