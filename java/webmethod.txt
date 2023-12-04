@@ -1,0 +1,45 @@
+Software AG Notes
+
+# Conf Dir
+Install Area : \Designer\eclipse
+Configuration Area :  \Designer\eclipse\configuration
+Workspace : <user-home-dir>/.eclipse/<product-id>_<product-version>_<hashcode>_<os-ws-arch>/configuration
+The user home directory is determined by the user.home Java system property
+A non-default configuration area can be defined by setting the osgi.configuration.area system property.
+
+
+# Change JDK
+## Software AG_directory \Designer\eclipse\eclipse.ini
+use -vm var
+
+# Designer Memory Set
+## Software AG_directory \Designer\eclipse\eclipse.ini
+-Xmx max
+-Xms min
+Ensure that the value for -Xms is less than the value for -Xmx.
+
+# Java ByteCode
+## Software AG_directory \Designer\eclipse\eclipse.ini
+The Java class bytecode verification process helps you troubleshoot issues in code compiled by external compilers.
+-Xverify:none
+
+# Java Code Cache
+## Software AG_directory \Designer\eclipse\eclipse.ini
+CodeCache is full. Compiler has been disabled.
+A code cache overflow might result in serious performance degradation because the Java code is not compiled to native code. 
+-XX:ReservedCodeCacheSize= <default 240mb>
+
+# Enabling Designer Console Output on Windows
+## Software AG_directory \Designer\eclipse\eclipse.ini
+Type -consoleLog in a new line above the -vm parameter.
+Replace javaw.exe with java.exe at the end of the -vm parameter definition.
+## cd Software AG_directory \Designer\eclipse
+eclipse –consoleLog –vm <path to java.exe>
+## shorcut win launcher
+append target to : –consoleLog –vm <path to java.exe>
+
+# SSL
+## Software AG_directory \Designer\eclipse\configuration\config.ini
+javax.net.ssl.trustStore=C\:\\keystore\\truststore file path
+javax.net.ssl.trustStoreType=JKS
+
