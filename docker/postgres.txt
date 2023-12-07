@@ -1,4 +1,6 @@
 docker container create \
+--interactive \
+--tty \
 --env POSTGRES_USER=yukenz \
 --env POSTGRES_PASSWORD=awan123 \
 postgres:15-alpine
