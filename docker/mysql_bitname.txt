@@ -1,4 +1,5 @@
 docker container create \
+--name wm_mysql \
 --interactive \
 --tty \
 --publish 3306:3306 \
