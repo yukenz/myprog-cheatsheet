@@ -1,5 +1,13 @@
 # Using Random Mac Address on Gnome Based
 
+<!-- TOC -->
+* [Using Random Mac Address on Gnome Based](#using-random-mac-address-on-gnome-based)
+  * [Add Configuratuin NetworkManager](#add-configuratuin-networkmanager)
+  * [Restart NetworkManager](#restart-networkmanager)
+  * [Check Result](#check-result)
+  * [Manual SetUp for independent SSID](#manual-setup-for-independent-ssid)
+<!-- TOC -->
+
 ## Add Configuratuin NetworkManager
 
 Edit /etc/NetworkManager/conf.d/00-macrandomize.conf :
