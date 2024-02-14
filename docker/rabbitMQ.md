@@ -1,9 +1,6 @@
 # RabbitMQ Docker
 
-```shell
-docker pull --platform linux/amd64 rabbitmq 
-```
-
+### Script for install
 ```shell
 docker container create \
 --interactive \
