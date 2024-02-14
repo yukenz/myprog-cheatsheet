@@ -1,0 +1,379 @@
+### Home Request
+GET {{elasticHost}}
+
+### List Index
+GET {{elasticHost}}
+    /_cat/indices?v
+
+### DDL
+HEAD {{elasticHost}}
+
+### Customers Create Index
+PUT {{elasticHost}}
+    /customers
+
+### Customers See Map
+GET {{elasticHost}}
+    /customers/_mapping
+
+### Customers Edit Map Index
+PUT {{elasticHost}}
+    /customers/_mapping
+Content-Type: application/json
+
+{
+  "date_detection": true,
+  "numeric_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd"
+  ]
+}
+
+### Customers Delete Index
+DELETE {{elasticHost}}
+    /customers
+
+### Products Create Index
+PUT {{elasticHost}}
+    /products
+
+### Product See Map
+GET {{elasticHost}}
+    /products/_mapping
+
+### Products Edit Map Index
+PUT {{elasticHost}}
+    /products/_mapping
+Content-Type: application/json
+
+{
+  "date_detection": true,
+  "numeric_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd"
+  ]
+}
+
+### Products Delete Index
+DELETE {{elasticHost}}
+    /products
+
+### Orders Create Index
+PUT {{elasticHost}}
+    /orders
+
+### Orders See Map
+GET {{elasticHost}}
+    /orders/_mapping
+
+### Orders Edit Map Index
+PUT {{elasticHost}}
+    /orders/_mapping
+Content-Type: application/json
+
+{
+  "date_detection": true,
+  "numeric_detection": true,
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd"
+  ]
+}
+
+### Orders Delete Index
+DELETE {{elasticHost}}
+    /orders
+
+### DML Single
+HEAD {{elasticHost}}
+
+### Customer Create id awan
+POST {{elasticHost}}
+    /customers/_create
+    /awan
+Content-Type: application/json
+
+{
+  "name": "Yuyun Purniawan",
+  "register_at": "2024-02-01 00:00:00"
+}
+
+### Customer Delete id awan
+DELETE {{elasticHost}}
+    /customers/_doc
+    /awan
+
+### Customer Get Docs by ID awan
+GET {{elasticHost}}
+    /customers/_doc
+    /awan
+
+### Customer Check Docs by ID awan
+HEAD {{elasticHost}}
+    /customers/_doc
+    /awan
+
+### Customer Get Source by ID awan
+GET {{elasticHost}}
+    /customers/_source
+    /awan
+
+### Products Create id 1
+POST {{elasticHost}}
+    /products/_create
+    /1
+Content-Type: application/json
+
+{
+  "name": "Indomie Ayam Goreng",
+  "price": "2000"
+}
+
+### Products Persist id 1 via Doc
+POST {{elasticHost}}
+    /products/_doc
+    /1
+Content-Type: application/json
+
+{
+  "name": "Indomie Ayam Goreng",
+  "price": "2000"
+}
+
+### Products Update id 1
+POST {{elasticHost}}
+    /products/_update
+    /1
+Content-Type: application/json
+
+{
+  "doc": {
+    "price": "5000"
+  }
+}
+
+### Products Get Docs by ID 1
+GET {{elasticHost}}
+    /products/_doc
+    /1
+
+### Products Check Docs by ID 1
+HEAD {{elasticHost}}
+    /products/_doc
+    /1
+
+### Products Get Source by ID 1
+GET {{elasticHost}}
+    /products/_source
+    /1
+
+### Products Create id 2
+POST {{elasticHost}}
+    /products/_create
+    /2
+Content-Type: application/json
+
+{
+  "name": "Mie Sedap Soto Lamongan",
+  "price": "3000"
+}
+
+
+### Products Persist id 2 via Doc
+POST {{elasticHost}}
+    /products/_doc
+    /2
+Content-Type: application/json
+
+{
+  "name": "Mie Sedap Soto Lamongan",
+  "price": "3000"
+}
+
+### Products Update id 2
+POST {{elasticHost}}
+    /products/_update
+    /2
+Content-Type: application/json
+
+{
+  "doc": {
+    "price": "4000"
+  }
+}
+
+### Products Get Docs by ID 2
+GET {{elasticHost}}
+    /products/_doc
+    /2
+
+### Products Check Docs by ID 2
+HEAD {{elasticHost}}
+    /products/_doc
+    /2
+
+### Products Get Source by ID 2
+GET {{elasticHost}}
+    /products/_source
+    /2
+
+
+### Orders Create id 1
+POST {{elasticHost}}
+    /orders/_create
+    /1
+Content-Type: application/json
+
+{
+  "order_date": "2024-02-14 00:00:00",
+  "customer_id": "awan",
+  "total": 10000,
+  "items": [
+    {
+      "product_id": 1,
+      "price": 2000,
+      "quantity": 2
+    },
+    {
+      "product_id": 2,
+      "price": 3000,
+      "quantity": 2
+    }
+  ]
+}
+
+### Orders Get Docs by ID 1
+GET {{elasticHost}}
+    /orders/_doc
+    /1
+
+### Orders Check Docs by ID 1
+HEAD {{elasticHost}}
+    /orders/_doc
+    /1
+
+### Orders Get Source by ID 1
+GET {{elasticHost}}
+    /orders/_source
+    /1
+
+### Multi Select
+POST {{elasticHost}}
+    /products/_mget
+Content-Type: application/json
+
+{
+  "ids": [
+    "1",
+    "2"
+  ]
+}
+
+### Search w/ Limit,Sort
+POST {{elasticHost}}
+    /products/_search?
+    size=2&
+    from=0&
+    sort=price:asc
+
+### Search w/ Select Field
+POST {{elasticHost}}
+    /orders/_search?
+    _source_includes=total,customer_id
+#    _source_excludes=total,customer_id
+
+### BULK API
+POST {{elasticHost}}
+    /_bulk
+Content-Type: application/json
+
+< bulkElastic.json
+
+### ADD POINTING ALIAS
+POST {{elasticHost}}
+    /_aliases
+Content-Type: application/json
+
+{
+  "actions": {
+    "add": {
+      "index": "customers",
+      "alias": "customer"
+    }
+  }
+}
+
+### REMOVE POINTING ALIAS
+POST {{elasticHost}}
+    /_aliases
+Content-Type: application/json
+
+{
+  "actions": {
+    "remove": {
+      "index": "customers",
+      "alias": "customer"
+    }
+  }
+}
+
+### PRINT AVALIABLE ALIAS
+GET {{elasticHost}}
+    /_aliases
+
+### Reindex / cpy / migrate
+POST {{elasticHost}}
+    /_reindex
+Content-Type: application/json
+
+{
+  "source": {
+    "index": "customer"
+  },
+  "dest": {
+    "index": "customers_v2"
+  }
+}
+
+### Create Products v2
+PUT {{elasticHost}}
+    /products_v2
+
+### See Mapping Products v2
+GET {{elasticHost}}
+    /products_v2/
+    _mapping
+
+### Edit Mapping Products v2
+PUT {{elasticHost}}
+    /products_v2/
+    _mapping
+Content-Type: application/json
+
+{
+  "dynamic_date_formats": [
+    "yyyy-MM-dd HH:mm:ss",
+    "yyyy/MM/dd HH:mm:ss",
+    "yyyy-MM-dd",
+    "yyyy/MM/dd"
+  ],
+  "date_detection": true,
+  "numeric_detection": true,
+  "properties": {
+    "name": {
+      "type": "text"
+    },
+    "price": {
+      "type": "long"
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+{"create" :  {"_index" :  "customers", "_id" : "2"}}
+{"name" :  "Nur Aliza", "register_at" :  "2024-02-01 00:00:00"}
+{"index" :  {"_index" :  "customers", "_id" : "2"}}
+{"name" :  "Nur Aliza", "register_at" :  "2024-02-01 00:00:00"}
+{"update" :  {"_index" :  "customers", "_id" : "2"}}
+{"doc" :  {"name" :  "Aliza"}}
+{"delete" :  {"_index" :  "customers", "_id" : "2"}}
