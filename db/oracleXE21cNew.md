@@ -21,6 +21,12 @@ CDB$ROOT(sys) -> XEPDB1 (pdbadmin)
 - all privileges
 
 ## Utils
+
+### JDBC URL WM
+```text
+jdbc:wm:oracle://localhost:1521;serviceName=XEPDB1
+```
+
 ### Create Docker C
 ```shell
 docker create \
@@ -90,10 +96,11 @@ Coba Check con_name
 
 
 
-## Create User
-```sql
+## User Creation
+```oraclesqlplus
 create user sagadmin identified by sag123;
 create user system identified by sys123;
+drop user sagadmin cascade;
 ```
 Notes 
 - Pastikan cek con_name terlebih dahulu
