@@ -105,5 +105,6 @@ Then run "mount /compat/linux/dev/shm".
 ## SoftwareAG
 
 ```shell
--installDir /home/softwareag -readImage ./sag/installer/SoftwareAG1015-installer-linux-04042023.zip -console 
+-installDir /opt/softwareag -readImage ./installer/SoftwareAG1015-installer-linux-04042023.zip -console
+ --accept-license -d /opt/softwareag/ -i ./installer/SoftwareAG1015-installer-linux-04042023-fix.zip
 ```
