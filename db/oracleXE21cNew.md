@@ -127,3 +127,4 @@ ALTER USER system IDENTIFIED BY admin ACCOUNT UNLOCK;
 
 ## Table NS
 Path untuk TNS ada di : **/opt/oracle/oradata**
+
