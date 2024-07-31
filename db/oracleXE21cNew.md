@@ -98,7 +98,7 @@ Coba Check con_name
 
 ## User Creation
 ```oraclesqlplus
-create user sagadmin identified by sag123;
+create user sagadmin identified by sag123 account unlock;
 create user system identified by sys123;
 drop user sagadmin cascade;
 ```
@@ -117,7 +117,8 @@ Notes
 
 ## Access grants
 ```oraclesqlplus
-grant all privileges to sagadmin;
+grant connect to awandev;
+grant all privileges to awandev;
 grant dba to sagadmin;
 revoke dba from sagadmin;
 
