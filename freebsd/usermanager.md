@@ -56,7 +56,7 @@ pw unlock help
 
 # Example
 ## Add
-pw user add -n softwareag -c "SoftwareAG" -d /home/softwareag -G wheel -m -s /usr/local/bin/zsh
+pw user add -n softwareag -c "SoftwareAG" -d /opt/softwareag -G wheel -m -s /usr/local/bin/zsh
 ## Remove
 pw user del -n softwareag -r
 ```

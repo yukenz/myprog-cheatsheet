@@ -30,7 +30,7 @@ Invalid vdev : Using -f option
 
 ```shell
 # striped pool | RAID-0 | capacity 2x | Fault Untolerance
-sudo zpool create new-pool /dev/sdb /dev/sdc
+sudo zpool create new-pool /dev/sdd
 
 # mirrored pool | RAID-1 | capacity single | Fault Tolerance
 sudo zpool create new-pool mirror /dev/sdb /dev/sdc
@@ -56,7 +56,7 @@ sudo zpool destroy new-poo
 
 ```shell
 # Set mount point
-zfs set mountpoint=/optwm new-pool
+zfs set mountpoint=/opt/softwareag webmethods
 
 # Get mount point
 zfs get mountpoint new-pool

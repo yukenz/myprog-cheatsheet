@@ -1,5 +1,6 @@
 ```shell
 useradd -m -d /opt/softwareag -c "SoftwareAG" -p sagadmin -s /bin/zsh
+useradd -m -c "Yuyun Purniawan" -p sagadmin -s /bin/zsh yukenz
 sudo firewall-cmd --zone=webmethods --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.92.0/24" port port=22 protocol=tcp accept'
 
 ```
